@@ -19,14 +19,23 @@ const HouseContextProvider = ({ children }) => {
    useEffect(() => {
       const allCountries = houses.map((house) => house.country);
 
-      console.log(allCountries);
-
       // remove duplicates
       const uniqueCountries = ['Location (any)', ...new Set(allCountries)];
 
-      console.log(uniqueCountries);
       // set countries state
       setCountries(uniqueCountries);
+   }, []);
+
+   // return all properties
+
+   useEffect(() => {
+      const allProperties = houses.map((house) => house.type);
+
+      // remove duplicates
+      const uniqueProperties = ['Location (any)', ...new Set(allProperties)];
+
+      // set countries state
+      setProperties(uniqueProperties);
    }, []);
 
    return (
